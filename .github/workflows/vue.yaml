@@ -1,0 +1,35 @@
+name: Build vue-cli application
+
+on:
+    push:
+        branches:
+            - master
+            
+jobs:
+    deploy:
+        name: Deploy application
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@gh-pages
+            - name: Create node environment
+              uses: actions/setup-node@v2
+              with: 
+                node-version: 14.x
+            - name: Install packages and build application
+              run: |
+                cd vue-app
+                npm install -g @vue/cli yarn
+                yarn install
+                yarn build
+                cd dist
+                cp index.html 404.html
+                cd ../../
+                cp CNAME vue-app/dist/CNAME
+            - name: Deploy
+              uses: s0/git-publish-subdir-action@master
+              env:
+                REPO: self
+                BRANCH: gh-pages
+                FOLDER: vue-app/dist
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

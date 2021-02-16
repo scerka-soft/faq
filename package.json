@@ -1,0 +1,23 @@
+{
+  "name": "vue-faq",
+  "version": "1.0.0",
+  "description": "Faq project based on vue-cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scerka-soft/faq.git"
+  },
+  "keywords": [
+    "scerka",
+    "faq"
+  ],
+  "author": "Scerka",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/scerka-soft/faq/issues"
+  },
+  "homepage": "https://github.com/scerka-soft/faq#readme"
+}
